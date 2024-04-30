@@ -23,9 +23,9 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
-    width: 768px;
+    width: 900px;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 580px;
 }
 
 .container p{
@@ -41,16 +41,16 @@
 
 .container a{
     color: #333;
-    font-size: 13px;
+    font-size: 3px;
     text-decoration: none;
     margin: 15px 0 10px;
 }
 
 .container button{
-    background-color: #94DDF3; 
+    background-color: #61d497; 
     color: #fff;
     font-size: 12px;
-    padding: 10px 45px;
+    padding: 7px 25px;
     border: 1px solid transparent;
     border-radius: 8px;
     font-weight: 600;
@@ -76,10 +76,10 @@
 }
 
 .container input{
-    background-color: #eee;
+    background-color: #eeeeee;
     border: none;
     margin: 8px 0;
-    padding: 10px 15px;
+    padding: 10px 5px;
     font-size: 13px;
     border-radius: 8px;
     width: 100%;

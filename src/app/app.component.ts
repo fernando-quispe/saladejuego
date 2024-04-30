@@ -7,11 +7,14 @@ import { LoginComponent } from './page/login/login.component';
 import { ErrorComponent } from './page/error/error.component';
 import { HomeComponent } from './page/home/home.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
+import { JuegosComponent } from './page/juegos/juegos.component';
+import AuthComponent from './page/auth/auth.component';
+import { RegistroComponent } from './page/registro/registro.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule, HomeComponent, QuienSoyComponent],
+  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule, HomeComponent, QuienSoyComponent, JuegosComponent, AuthComponent, RegistroComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

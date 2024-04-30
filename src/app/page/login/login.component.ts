@@ -1,76 +1,60 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { Component } from '@angular/core';
-import { EmailValidator, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, EmailValidator, FormBuilder } from '@angular/forms';
+import { User } from './user.model';
+import { AuthService } from './auth.service';
+import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 import { BienvenidoComponent } from '../bienvenido/bienvenido.component';
 import { ErrorComponent } from '../error/error.component';
 import { HomeComponent } from '../home/home.component';
+import { RegistroComponent } from '../registro/registro.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, NgFor ,ReactiveFormsModule ,CommonModule, LoginComponent, BienvenidoComponent, ErrorComponent, RouterOutlet, RouterLink, RouterLinkActive, HomeComponent],
+  imports: [CommonModule, ReactiveFormsModule, NgFor,FormsModule, RouterModule , RouterLinkActive, RouterOutlet,RouterLink, CommonModule, BienvenidoComponent, ReactiveFormsModule, ErrorComponent, HomeComponent, RegistroComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
-  isSignDivVisiable: boolean  = true;
-  signUpObj: SignUpModel  = new SignUpModel();
-  loginObj: LoginModel  = new LoginModel();
+  firebaseService = inject(AuthService);
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private toastr: ToastrService){}
 
-  onRegister() {
-    debugger;
-    const localUser = localStorage.getItem('usuarios');
-    if(localUser != null) {
-      const users =  JSON.parse(localUser);
-      users.push(this.signUpObj);
-      localStorage.setItem('usuarios', JSON.stringify(users))
-    } else {
-      const users = [];
-      users.push(this.signUpObj);
-      localStorage.setItem('usuarios', JSON.stringify(users))
-    }
-    alert('Registración exitosa')
+  form = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
+  })
+
+  ngOnInit() {
   }
 
-  onLogin() {
-    debugger;
-    const localUsers =  localStorage.getItem('usuarios');
-    if(localUsers != null) {
-      const users =  JSON.parse(localUsers);
-      const isUserPresent =  users.find( (user:SignUpModel)=> user.email == this.loginObj.email && user.password == this.loginObj.password);
-      if(isUserPresent != undefined) {
-        alert("Usuario encontrado ...");
-        localStorage.setItem('loggedUser', JSON.stringify(isUserPresent));
-        this.router.navigateByUrl('/bienvenido');
-      } else {
-        alert("Usuario no encontrado")
-        this.router.navigateByUrl('/error');
-      }
-    }
-  } 
-}
-
-export class SignUpModel  {
-  name: string;
-  email: string;
-  password: string;
-
-  constructor() {
-    this.email = "";
-    this.name = "";
-    this.password= ""
+  administradorLogin(){
+    this.form.controls['email'].setValue('fernando@gmail.com');
+    this.form.controls['password'].setValue('123456');
   }
-}
+  invitadoLogin(){
+    this.form.controls['email'].setValue('daniel@gmail.com');
+    this.form.controls['password'].setValue('123456');
+  }
 
-export class LoginModel  { 
-  email: string;
-  password: string;
+  async submit() {
+    if (this.form.valid) {
+      this.firebaseService.signIn(this.form.value as User)
+        .then(resp => {          
+          console.log('___', resp)
+          this.router.navigateByUrl('/home');
+        }
+      )      
+    }
+    else {
+      this.toastr.error("Datos incompletos o inválidos", "ERROR"); 
+    }
+  }
 
-  constructor() {
-    this.email = ""; 
-    this.password= ""
+  async registrar(){        
+      this.router.navigateByUrl('/registro');    
   }
 }

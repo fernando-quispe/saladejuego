@@ -1,32 +1,41 @@
 <div class="parent"> 
-    <div class="container" [ngClass]="isSignDivVisiable ? 'active' :'' " id="container">
-        <div class="form-container sign-up" >
-            <form>
-                <h1>Crear una cuenta</h1>       
-                <input type="text" name="name" [(ngModel)]="signUpObj.name" placeholder="Nombre">
-                <input type="email" name="email" [(ngModel)]="signUpObj.email" placeholder="Correo electrónico">
-                <input type="password" name="password"  [(ngModel)]="signUpObj.password" placeholder="Clave">
-                <button (click)="onRegister()">Registrarse</button>
+    <div class="container" id="container">    
+        <div class="form-container sign-in">
+            <form>               
+                <form  [formGroup]="form" (ngSubmit)="submit()">
+                    <div >
+                        <h1>Inicio de sesión</h1><br>
+                        <label for="email" >Correo electrónico </label>
+                        <input type="email" name="email" id="email" formControlName="email"  placeholder="nombre@gmail.com" required>                    
+                        <label for="password" >Contraseña </label>
+                        <input type="password" name="password" id="password" formControlName="password" placeholder="••••••••"  required>
+                    </div>   
+                    <button type="submit" >Ingresar</button><br>
+                   
+                </form>    
+
+                <form [formGroup]="form" (ngSubmit)="registrar()">
+                    <div>
+                        No registrado?                      
+                    </div>
+                    <button type="registrar" >Registrarse aqui</button><br>
+                    <div class = "text-center" >
+                        <button type="button" class="btn btn-primary " (click)=administradorLogin() style="margin-right: 4px">Administrador</button>
+                        <button type="button" class="btn btn-primary " (click)=invitadoLogin() >Invitado</button>
+                    </div> 
+                </form>                 
             </form>
         </div>
-        <div class="form-container sign-in" >
-            <form>
-                <h1>Inicio de sesión</h1>
-                <input type="email" name="email" [(ngModel)]="loginObj.email" placeholder="Correo electrónico">
-                <input type="password" name="password"   [(ngModel)]="loginObj.password" placeholder="Clave">                
-                <button (click)="onLogin()">Iniciar sesión</button>
-            </form>
-        </div>
+
         <div class="toggle-container">
             <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>¡Bienvenido de nuevo!</h1>
-                    <p>Ingrese sus datos personales</p>
-                    <button type="button" class="hidden" id="login" (click)="isSignDivVisiable = false">Iniciar sesión</button>
-                </div>
                 <div class="toggle-panel toggle-right">
                     <h1>¡Hola, Usuario!</h1>
-                    <p>Regístrese con sus datos personales</p>
-                    <button type="button" class="hidden" id="register" (click)="isSignDivVisiable = true">Registrarse</button>                    
-                </div>
+                    <p>Ingrese sus datos personales</p>                    
+                </div>                
             </div>
+        </div>    
+    </div>
+</div>
+
+<router-outlet></router-outlet>
