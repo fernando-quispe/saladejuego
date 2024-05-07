@@ -1,0 +1,49 @@
+<section>  
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav">      
+        <li class="nav-item">
+          <a class="nav-link enable" routerLink="/home">Inicio</a>
+        </li>      
+      </ul>
+      <form class="d-flex">
+        <span class="text-white">{{loggedUser?.email}} </span> 
+        <button class="btn btn-primary" type="button" (click)="onLogoff()">Cerrar sesión</button>
+      </form>
+    </div>
+</nav>  
+</section>
+
+<!--chat-->
+
+<div *ngIf="usuarioLogeado && !mostrarChat" class="chatIconContainer" (click)="mostrarChat=true"></div>
+<img src="./assets/imagenes/burbujaschat.png" class="chatIcon" alt="chat Icon">
+
+<div class="card text-center cardContainer" *ngIf="usuarioLogeado && mostrarChat">
+  <div class="card-header">
+    CHAT
+    <div class="closeIcon" (click)="mostrarChat=false">X
+    </div>
+  </div>
+
+  <div class="card-body">      
+    <div id="contenedorDeMensajes" class="contenedorDeMensajes h-100" >
+      <p *ngFor="let mensaje of mensajes" class="msj p-2" 
+        [ngClass]="(usuarioLogeado.uid==mensaje.emisor)? 'enviado' : 'recibido'" >
+        {{mensaje.texto}}
+      </p>
+    </div>
+  </div>
+
+  <form class="card-footer text-muted input-group" (ngSubmit)="enviarMensaje()">
+    <input type="text" class="form-control" placeholder="Ingrese su mensaje" [(ngModel)]="nuevoMensaje" [ngModelOptions]="{standalone:true}">
+      <div class="input-group-append" (click)="enviarMensaje()">
+        <span class="input-group-text" id="basic-addon2">
+          <img class="imgEnviar" src="./assets/imagenes/chat.png" width="20px" alt="seng message">          
+        </span>
+      </div>      
+  </form>
+
+</div>
+
+<router-outlet></router-outlet>

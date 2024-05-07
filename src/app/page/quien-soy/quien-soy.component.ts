@@ -10,7 +10,7 @@ import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-quien-soy',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule, HomeComponent],
+  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule],
   templateUrl: './quien-soy.component.html',
   styleUrl: './quien-soy.component.css'
 })

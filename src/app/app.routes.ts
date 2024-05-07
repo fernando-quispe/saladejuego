@@ -7,6 +7,7 @@ import { HomeComponent } from './page/home/home.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { JuegosComponent } from './page/juegos/juegos.component';
 import { RegistroComponent } from './page/registro/registro.component';
+import { ChatComponent } from './page/chat/chat.component';
 
 export const routes: Routes = [
     { path:'', redirectTo : 'login', pathMatch:'full' },
@@ -14,6 +15,7 @@ export const routes: Routes = [
     { path:'error', component: ErrorComponent },  
     { path:'quien-soy', component: QuienSoyComponent }, 
     { path:'home', component: HomeComponent }, 
+    { path:'chat', component: ChatComponent },
     { path:'juegos', component: JuegosComponent },
     { path:'registro', component: RegistroComponent }, 
     { path:'', component: HomeComponent, children: [

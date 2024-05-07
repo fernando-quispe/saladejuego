@@ -12,7 +12,7 @@ import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgFor,FormsModule, RouterModule , RouterLinkActive, RouterOutlet,RouterLink, CommonModule, BienvenidoComponent, ReactiveFormsModule, ErrorComponent, HomeComponent, RegistroComponent],
+  imports: [CommonModule, ReactiveFormsModule, NgFor,FormsModule, RouterModule , RouterLinkActive, RouterOutlet,RouterLink, CommonModule, BienvenidoComponent, ReactiveFormsModule, ErrorComponent, RegistroComponent],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
@@ -35,14 +35,13 @@ export class RegistroComponent {
       this.firebaseService.signUp(this.form.value as User)
         .then(resp => {          
           console.log('___', resp)
-          this.router.navigateByUrl('/home');
-        }
-      )
-      this.toastr.error("Usuario ya registrado", "ERROR");      
+          this.router.navigateByUrl('/home');})
+        .catch(error => {        
+          this.toastr.error("Usuario ya registrado", "ERROR");})    
     }       
   }
 
   async inicio(){        
     this.router.navigateByUrl('/login');    
-}
+  }
 }

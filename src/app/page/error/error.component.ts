@@ -9,7 +9,7 @@ import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-error',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule, HomeComponent ],
+  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule ],
   templateUrl: './error.component.html',
   styleUrl: './error.component.css'
 })

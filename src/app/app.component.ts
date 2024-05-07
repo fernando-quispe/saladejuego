@@ -10,11 +10,12 @@ import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { JuegosComponent } from './page/juegos/juegos.component';
 import AuthComponent from './page/auth/auth.component';
 import { RegistroComponent } from './page/registro/registro.component';
+import { ChatComponent } from './page/chat/chat.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule, HomeComponent, QuienSoyComponent, JuegosComponent, AuthComponent, RegistroComponent],
+  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule, QuienSoyComponent, AuthComponent, RegistroComponent, ChatComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

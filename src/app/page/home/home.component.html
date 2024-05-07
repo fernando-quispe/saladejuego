@@ -1,26 +1,71 @@
+<section>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-      <ul class="navbar-nav">
+      <!--
+      <ul class="navbar-nav">        
         <li class="nav-item">
           <a class="nav-link enable" routerLink="/quien-soy">Quien Soy</a>          
         </li>
         <li class="nav-item">
-          <a class="nav-link enable" routerLink="/juegos">Juegos</a>
+          <a class="nav-link disabled" routerLink="/juegos"></a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Encuesta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Chat</a>
+          <a class="nav-link enable" routerLink="/chat">Chat</a>
         </li>
-      </ul>
+      </ul>-->
+
+      <div class="contenedor-left">           
+        <button class="btnleft"   type="button" (click)="quiensoy()">Quien Soy</button>
+        <button class="btnleft"   type="button" (click)="chat()">Chat</button>
+      </div>
+     
       <form class="d-flex">
-        <span class="text-white">{{loggedUser?.email}}</span> 
+        <span class="text-white">{{loggedUser?.email}}</span>
+        <!--<span class="text-white">{{loggedUser.email?loggedUser.email : loggedUser.email}}</span>-->        
         <button class="btn btn-primary" type="button" (click)="onLogoff()">Cerrar sesión</button>
       </form>
+
     </div>
   </nav>
 
-  <img src="./assets/imagenes/juegos.jpg">
+<!--lo saque para ver los juegos<img src="./assets/imagenes/juegos.jpg">-->
+  
+<!--<section class="image-1">  </section>-->
 
-  <router-outlet></router-outlet>
+<div class="container">
+
+  <div (click)="Juego('Ahorcado')" class="menu ld ld-float-ttb-in" id="menu">
+    <img src="./assets/imagenes/ahorcado.jpg" class="img-thumbnail imagenDeMenu" alt="Avatar" >
+    <div class="media-body">
+      <h4 class="media-heading">Ahorcado</h4>
+    </div>
+  </div>
+  
+  <div (click)="Juego('MayorOMenor')" class="menu ld ld-float-ttb-in" id="menu">
+    <img src="./assets/imagenes/mayoromenor.jpg" class="img-thumbnail imagenDeMenu" alt="Avatar"  >
+    <div class="media-body">
+      <h4 class="media-heading">Mayor o Menor</h4>
+    </div>
+  </div>
+
+  <div (click)="Juego('Preguntados')"  class="menu ld ld-float-ttb-in" id="menu">
+    <img src="./assets/imagenes/preguntados.jpg" class="img-thumbnail imagenDeMenu" alt="Avatar" >
+    <div class="media-body">
+      <h4 class="media-heading">Preguntados</h4>
+    </div>
+  </div>
+
+  <div (click)="Juego('MiJuego')"  class="menu ld ld-float-ttb-in" id="menu">
+    <img class="img-thumbnail imagenDeMenu"   src="./assets/imagenes/juegos.jpg" alt="Avatar">
+    <div class="media-body">
+      <h4 class="media-heading">Mi Juego</h4>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!--<router-outlet></router-outlet>-->

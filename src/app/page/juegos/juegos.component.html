@@ -26,4 +26,43 @@
 </header>
 
 
-<router-outlet></router-outlet>
+<div class="container">
+
+   <div (click)="Juego('Ahorcado')" class="menu ld ld-float-ttb-in" id="menu">
+
+      <img src="./assets/imagenes/ahorcado.jpg" class="img-thumbnail imagenDeMenu" alt="Avatar" >
+
+
+    <div class="media-body">
+      <h4 class="media-heading">Ahorcado</h4>
+    </div>
+  </div>
+  <div (click)="Juego('MayorOMenor')" class="menu ld ld-float-ttb-in" id="menu">
+
+    <img src="./assets/imagenes/mayoromenor.jpg" class="img-thumbnail imagenDeMenu" alt="Avatar"  >
+
+    <div class="media-body">
+      <h4 class="media-heading">Mayor o Menor</h4>
+</div>
+
+  </div>
+  <div (click)="Juego('Preguntados')"  class="menu ld ld-float-ttb-in" id="menu">
+          <img src="./assets/imagenes/preguntados.jpg" class="img-thumbnail imagenDeMenu" alt="Avatar" >
+
+        <div class="media-body">
+          <h4 class="media-heading">Preguntados</h4>
+        </div>
+  </div>
+  
+
+ 
+
+
+</div>
+<footer>
+
+</footer>
+
+
+
+<!--<router-outlet></router-outlet>-->

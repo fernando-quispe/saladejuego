@@ -11,10 +11,14 @@ import { Router } from '@angular/router';
 
 export class AuthService {
 
-  constructor() { }
+  constructor(
+    private auth: AngularFireAuth,
+    private firestore: AngularFirestore
 
-  auth = inject(AngularFireAuth);
-  firestore = inject(AngularFirestore);
+  ) { }
+
+  //auth = inject(AngularFireAuth);
+  //firestore = inject(AngularFirestore);
   router = inject(Router);
 
   getAuth() {
@@ -45,5 +49,12 @@ export class AuthService {
 
   routerlink(url: any) {
     this.router.navigateByUrl(url)
+  }
+
+  private logLogin(email: string) {
+    this.firestore.collection('usuarios').add({
+      email: email,
+      timestamp: new Date()
+    });
   }
 }
