@@ -5,11 +5,12 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../page/login/auth.service';
 import { DataService } from '../../servicios/data.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-ahorcado',
   //standalone: true,
-  //imports: [],
+  //imports: [NgFor, NgIf],
   templateUrl: './ahorcado.component.html',
   styleUrl: './ahorcado.component.css'
 })
@@ -60,7 +61,6 @@ export class AhorcadoComponent implements OnInit{
       this.palabraEscondida+='-';
     }
   }
-
   
   finalizar(){
     this.contadorPuntos=0;
@@ -106,8 +106,7 @@ export class AhorcadoComponent implements OnInit{
     this.letrasUtilizadas+=letra+' ';
     console.log(this.letrasUtilizadas);
 
-    let palabra = [...this.palabraEscondida];  
-    
+    let palabra = [...this.palabraEscondida];      
     let contador = palabra.length;
 
     for (let i=0; i<palabra.length; i++) { 
@@ -161,5 +160,4 @@ export class AhorcadoComponent implements OnInit{
         break; 
     }
   }
-
 }

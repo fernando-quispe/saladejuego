@@ -8,23 +8,33 @@ import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { JuegosComponent } from './page/juegos/juegos.component';
 import { RegistroComponent } from './page/registro/registro.component';
 import { ChatComponent } from './page/chat/chat.component';
+import { ListadosComponent } from './page/listados/listados.component'
+import { authGuard } from './guards/auth.guard';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EncuestaComponent } from './page/encuesta/encuesta.component';
 
 export const routes: Routes = [
-    { path:'', redirectTo : 'login', pathMatch:'full' },
-    { path:'login', component: LoginComponent },
-    { path:'error', component: ErrorComponent },  
-    { path:'quien-soy', component: QuienSoyComponent }, 
-    { path:'home', component: HomeComponent }, 
-    { path:'chat', component: ChatComponent },
-    { path:'juegos', component: JuegosComponent },
-    { path:'registro', component: RegistroComponent }, 
-    { path:'', component: HomeComponent, children: [
-        { path:'bienvenido', component: BienvenidoComponent },   
-      ]
-    },      
-  ];
+    
+  { path:'login', component: LoginComponent },
+  { path:'error', component: ErrorComponent },  
+  { path:'quien-soy', component: QuienSoyComponent }, 
+  { path:'home', component: HomeComponent }, 
+  { path:'chat', component: ChatComponent },
+  { path:'encuesta', component: EncuestaComponent},  
+  { path:'registro', component: RegistroComponent },
+  /*{ path:'juegos', component: JuegosComponent },*/ 
+  /*{ path:'Juegos',loadChildren: ()=>(import('./modules/juegos/juegos-routing.module').then(m => m.JuegosRoutingModule))},*/
+  { path:'juegos',loadChildren: ()=>(import('./modules/juegos/juegos-routing.module').then(m => m.JuegosRoutingModule)),canActivate: [authGuard]},
+  /*{ path:'', component: HomeComponent, children: [
+  { path:'bienvenido', component: BienvenidoComponent },   
+  ]
+  }, */
+  { path:'', redirectTo : 'login', pathMatch:'full' },
+  { path: '**', component: ErrorComponent}     
+];
   
   @NgModule({
+    declarations:[],
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
   })

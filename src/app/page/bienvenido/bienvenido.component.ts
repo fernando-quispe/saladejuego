@@ -9,7 +9,7 @@ import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-bienvenido',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule],
+  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, RouterModule],
   templateUrl: './bienvenido.component.html',
   styleUrl: './bienvenido.component.css'
 })

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { BienvenidoComponent } from '../bienvenido/bienvenido.component';
@@ -9,12 +9,12 @@ import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-error',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule ],
+  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, ErrorComponent, RouterModule ],
   templateUrl: './error.component.html',
   styleUrl: './error.component.css'
 })
 
-export class ErrorComponent {
+export class ErrorComponent implements OnInit {
   loggedUser: any;
   constructor(private router: Router) {
     const localUser = localStorage.getItem('loggedUser');
@@ -26,5 +26,8 @@ export class ErrorComponent {
   onLogoff() {
     localStorage.removeItem('loggedUser');
     this.router.navigateByUrl('/login')
+  }
+
+  ngOnInit(): void {
   }
 }

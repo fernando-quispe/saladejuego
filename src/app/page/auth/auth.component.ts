@@ -12,7 +12,7 @@ import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgFor,FormsModule, RouterModule , RouterLinkActive, RouterOutlet,RouterLink, CommonModule, LoginComponent, BienvenidoComponent, ReactiveFormsModule, ErrorComponent, AuthComponent,],
+  imports: [CommonModule, ReactiveFormsModule, NgFor,FormsModule, RouterModule , RouterLinkActive, RouterOutlet,RouterLink, CommonModule,  BienvenidoComponent, ReactiveFormsModule, AuthComponent,],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })

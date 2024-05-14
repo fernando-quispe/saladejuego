@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from 'firebase/auth';
 import { User } from './user.model';
 import { Router } from '@angular/router';
@@ -12,15 +12,20 @@ import { ToastrService } from 'ngx-toastr';
 
 export class AuthService {
 
+  dbUsersRef:AngularFirestoreCollection<any>;
   userData: any;
+
   constructor(
     private auth: AngularFireAuth,
-    private firestore: AngularFirestore
-  ) { }
+    private firestore: AngularFirestore,
+    private router: Router,
+    private db: AngularFirestore) {
+      this.dbUsersRef = this.db.collection('usuarios');
+     }
 
   //auth = inject(AngularFireAuth);
   //firestore = inject(AngularFirestore);
-  router = inject(Router);
+  //router = inject(Router);
  
   getAuth() {
     return getAuth();
@@ -105,6 +110,8 @@ export class AuthService {
       this.toastr.error("Datos incompletos o inválidos", "ERROR"); 
     })
   }*/
+
+  //agregadoSR
   getUserUid()
   {  
     return new Promise((resolve, reject) => {
@@ -120,5 +127,113 @@ export class AuthService {
         }
       })    
     })
+  }
+
+  getUserEmail()
+  {  
+      return new Promise((resolve, reject) => {
+        this.auth.onAuthStateChanged(function(user){
+            if(user)
+            {
+              console.log(user);
+              resolve(user.email)
+            }
+            else
+            {
+              resolve("0")
+            }
+        })
+        
+      })
+  }
+    
+  getLogueado (){
+
+    let user = this.auth.currentUser;
+    console.log(user);
+    if(user != undefined && user!= null)
+    {
+      console.log(user); 
+      console.log(JSON.stringify(user));
+      console.info(JSON.stringify(user));
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  async getUserByMail(email: string) {
+
+    console.log("buscando usuario por mail");
+    let usrsRef = await this.dbUsersRef.ref.where("email", "==", email).get();
+    let listado:Array<any> = new Array<any>();
+    usrsRef.docs.map(function(x){
+        listado.push(x.data());
+    });
+    return listado;
+  }
+
+  /*getCurrentUserMail(): string {
+    return firebase.auth().currentUser.email;
+  }*/
+
+  getCurrentUser() {
+     let user = this.auth.currentUser;
+    return user;
+  }
+
+  isLoggedIn() {
+    return this.auth.authState;
+  }
+
+  login(email: string, password: string) {
+
+    return new Promise((resolve, reject) => {
+      this.auth.signInWithEmailAndPassword(email, password)
+        .then(user => {
+          let fecha=new Date();
+          this.db.collection('ingresos').add({
+            email: email,
+            fechaacceso:  fecha.getDate() + '-' + (fecha.getMonth()+1) +  '-' +fecha.getFullYear(),
+            dato: 'Ingreso al sistema'
+          })
+          resolve(user);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    })
+  }
+
+  logout() {
+    this.auth.signOut().then(() => {
+      this.router.navigate(['/login']);
+    })
+  }
+
+  register(email: string, password: string) {
+    return new Promise((resolve, reject) => {
+      this.auth.createUserWithEmailAndPassword(email, password)
+        .then(res => {
+          console.log(res.user.uid);
+          const uid = res.user.uid;
+          this.db.collection("usuarios").doc(res.user.uid).set({
+            uid: uid,
+            email:email,
+            clave:password,
+            perfil: 'usuario',
+            puntajes : [
+              {'ahorcadoJugados': 0},
+              {'mayorMenosJugados': 0},
+              {'preguntadosJugados': 0},
+              {'simonJugados': 0},
+            ]
+          })
+          resolve(res)
+        })
+        .catch(error => { reject(error) });
+    });
   }
 }

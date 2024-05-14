@@ -1,42 +1,27 @@
-<div class="parent"> 
-    <div class="container" id="container">    
-        <div class="form-container sign-in">
-            <form>               
-                <form  [formGroup]="form" (ngSubmit)="submit()">
-                    <div >
-                        <h1>Inicio de sesión</h1><br>
-                        <label for="email" >Correo electrónico </label>
-                        <input type="email" name="email" id="email" formControlName="email"  placeholder="nombre@gmail.com" required>                    
-                        <label for="password" >Contraseña </label>
-                        <input type="password" name="password" id="password" formControlName="password" placeholder="••••••••"  required>
-                    </div>   
-                    <button type="submit">Ingresar</button><br>              
-                 
-
-                </form>    
-
-                <form [formGroup]="form" (ngSubmit)="registrar()">
-                    <div>
-                        No registrado?                      
-                    </div>
-                    <button type="registrar" >Registrarse aqui</button><br>
-                    <div class = "text-center" >
-                        <button type="button" class="btn btn-primary " (click)=administradorLogin() style="margin-right: 4px">Administrador</button>
-                        <button type="button" class="btn btn-primary " (click)=invitadoLogin() >Invitado</button>
-                    </div> 
-                </form>                 
-            </form>
+<section>
+<div id="id01">
+    <form  class="form-signin modal-content" style="margin-top: 3rem;">       
+        <h1 class="h3 mb-3 font-weight-normal" style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 2rem;">Inicio de Sesión</h1>      
+        <div style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 2rem;">
+        </div>          
+        <div *ngIf="spiner"  style="position: absolute; justify-content: center; width:100%; z-index: 999;" class="row"><img src="../../../assets/imagenes/spinner.gif" alt="">
         </div>
-
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-right">
-                    <h1>¡Hola!</h1>
-                    <p>Ingrese sus datos personales</p>                    
-                </div>                
+        <div class="container"> 
+            <label ><b>Email</b></label>
+            <input  class="form-control" [ngClass]="emailClass"  id="email"   type="email" placeholder="Email"  [(ngModel)]="email"  name="uname" placeholder="nombre@gmail.com" required>
+            <label><b>Clave</b></label>
+            <input  class="form-control" [ngClass]="claveClass"   type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" placeholder="••••••••" required >
+            
+            <div class="divBoton"style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 2rem;">
+            <button class="btn-success btn-sm button"  *ngIf="logeando" type="submit" onclick="this.blur();"  (click)="Entrar()" >Ingresar</button>
             </div>
-        </div>    
-    </div>
+            
+            <br>
+            <div class="divBoton"style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 1rem;">
+            <button (click)="administradorLogin()" class="btn-warning btn-sm invitado"  onclick="this.blur();">Administrador</button>
+            <button (click)="invitadoLogin()" class="btn-warning btn-sm invitado"  onclick="this.blur();">Invitado</button>
+            </div>
+        </div>
+    </form>
 </div>
-
-<router-outlet></router-outlet>
+</section>

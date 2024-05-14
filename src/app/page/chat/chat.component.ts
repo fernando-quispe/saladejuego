@@ -5,85 +5,43 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';
 import { AuthService } from '../login/auth.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { ChatService } from '../../servicios/chat.service';
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, LoginComponent, RouterModule],
+  imports: [RouterOutlet, FormsModule, CommonModule, RouterModule],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
 
 export class ChatComponent implements OnInit{
-  mostrarChat=false;
-  usuarioLogeado: any;
-  nuevoMensaje: string="";
-  loggedUser: any;
+  mensaje:string='';
+  element:any;
 
-  /*
-  mensajes: any = [
-    {
-      emisor: "iv95bNCTDGVYTnI65vw333wUULgH3",
-      texto: "Hola que tal"
-    },
-    {
-      emisor: "id",
-      texto: "Todo bien..vos?"
-    },
-    {
-      emisor: "v95bNCTDGVYTnI65vw333wUULgH3",
-      texto: "Todo perfecto"
-    },
-    {
-      emisor: "id",
-      texto: "Me alegro"
-    },
-  ];*/
+  constructor(
+    public chatServ: ChatService,
+    private afs: AngularFirestore){
+      this.chatServ.cargarMensajes().subscribe(()=>{
+        setTimeout(()=>{
+          this.element.scrollTop=this.element.scrollHeight;
+        },20)
+      });
+  }
 
-  mensajes: any = []
+  ngOnInit():void{
+    this.element=document.getElementById('mensajes');
+  }
 
-  constructor(private router: Router, private authService:AuthService) {
-    const localUser = localStorage.getItem('loggedUser');
-    if(localUser != null) {
-      this.loggedUser = JSON.parse(localUser);
+  enviar_mensaje(){    
+    if(this.mensaje.length!=0){
+      this.element.scrooltop=this.element.scrolHeight;
+      this.chatServ.agregarMensaje(this.mensaje)
+      .then(()=> this.mensaje="")
+      .catch( (e:any)=>console.log("Error",e));
     }
-  }
-  
-  ngOnInit(): void {    
-    this.authService.getUserLogged().subscribe(usuario=>{
-      this.usuarioLogeado=usuario;
-    }); //tenemos que getUserLogged configurarlo
-  }
-
-  onLogoff() {
-    localStorage.removeItem('loggedUser');
-      this.router.navigateByUrl('/login')
-  }
-  
-  enviarMensaje(){
-    if(this.nuevoMensaje=="") return;
-    console.log(this.nuevoMensaje);
-    let mensaje={
-      emisor: this.usuarioLogeado.uid,
-      texto: this.nuevoMensaje
-    }
-    this.mensajes.push(mensaje);
-    this.nuevoMensaje="";
-
-    setTimeout(() => {
-      this.scrollToTheLastElementByClassName();
-    }, 10);
-
-    this.scrollToTheLastElementByClassName();
-  }
-
-  scrollToTheLastElementByClassName(){
-    let elements=document.getElementsByClassName('msj');
-    let ultimo:any=elements[(elements.length-1)];
-    let toppos=ultimo.offsetTop;
-    
-    //@ts-ignore
-    //document.getElementById('contenedorDeMensajes')?.scrollTop=toppos;
-  }
- 
+  //console.log(this.mensaje);
+  this.mensaje='';
+  }  
 }

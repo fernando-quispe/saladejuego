@@ -17,9 +17,8 @@
     max-width: 1000px;
     margin: auto;
     overflow: hidden;
-  }
-  
-  /* Header */  
+  }  
+ 
   header{
    /*background-image: url("/assets/imagenes/foto.jpg");*/
    background-color: rgb(100, 207, 193);
@@ -81,9 +80,7 @@
     font-size: 25px;
     line-height: 25px;  
   }
-
-  /* MAIN */
-  /* Acerca de*/
+  
   .main .contenedor{
     overflow: visible;
     text-align: center;
@@ -100,11 +97,11 @@
   }
   
   .main .acerca_de .texto{
-     font-weight: 600;
-     font-size: 1em;
-     line-height: 30px;
-     width: 80%;
-     margin: 40px auto 60px auto;  
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 30px;
+    width: 80%;
+    margin: 40px auto 60px auto;  
   }
   
   .main .acerca_de .texto .titulo{
@@ -118,9 +115,8 @@
 
   .main .acerca_de .texto .bold{
     color: #3895ea;
-  }
+  }  
   
-  /* imagenes*/
   .main .trabajos{  
     background-color: white;  
     padding: 60px,0px;
@@ -143,9 +139,9 @@
   
   .main .trabajos .contenedor_trabajos{
     display: flex;
-    flex-direction: row; /* filas*/
-    flex-wrap: wrap; /* hace que se pongan debajo si no entra*/
-    justify-content: space-between; /* para que tengan espacio entre ellas*/  
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: space-between; 
   }
   
   .main .trabajos .contenedor_trabajos .trabajo{
@@ -189,8 +185,7 @@
     font-size: 14px;
     color: rgb(202, 198, 198);
   }
-  
-  /*footer*/
+ 
   footer .redes_sociales{
     background: #1e2b28;
     padding: 60px 0;
@@ -214,8 +209,7 @@
 
   footer .redes_sociales .github:hover{background: #4078c0;}
   footer .redes_sociales .linkedin:hover{background: #0077b5;}
-  
-  /* Responsive*/
+    
   @media screen and (max-width: 800px){
       header .menu{
           text-align: center;
@@ -251,4 +245,4 @@
     padding-top: 40px;
     padding-bottom: 40px;
     background-color: #f5f5f5;
-  }
+  }  

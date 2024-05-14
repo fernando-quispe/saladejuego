@@ -17,18 +17,8 @@ import { HomeComponent } from '../home/home.component';
 
 export class JuegosComponent implements OnInit {
 
-  loggedUser: any;
-
-  /*constructor(private router: Router) {
-    const localUser = localStorage.getItem('loggedUser');
-    if(localUser != null) {
-      this.loggedUser = JSON.parse(localUser);
-    }
-  }*/
-  
-  
   constructor(private route: ActivatedRoute,
-    private router: Router) { } 
+    private router: Router) { }   
 
   onLogoff() {
     localStorage.removeItem('loggedUser');
@@ -39,6 +29,17 @@ export class JuegosComponent implements OnInit {
   }
   
   Juego(tipo: string) {
-    this.router.navigate(['/Juegos/'+tipo]);
+    this.router.navigate(['/juegos/'+tipo]);
   }
+  //loggedUser: any;
+
+  /*constructor(private router: Router) {
+    const localUser = localStorage.getItem('loggedUser');
+    if(localUser != null) {
+      this.loggedUser = JSON.parse(localUser);
+    }
+  }*/
+  
+  
+
 }

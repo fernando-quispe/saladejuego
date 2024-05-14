@@ -11,13 +11,15 @@ import { JuegosComponent } from './page/juegos/juegos.component';
 import AuthComponent from './page/auth/auth.component';
 import { RegistroComponent } from './page/registro/registro.component';
 import { ChatComponent } from './page/chat/chat.component';
+import { MenuPrincipalComponent } from "./page/menu-principal/menu-principal.component";
+import { SimonSaysComponent } from './page/simon-says/simon-says.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule, QuienSoyComponent, AuthComponent, RegistroComponent, ChatComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',    
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    standalone: true,
+    imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, ErrorComponent, RouterModule, AuthComponent, RegistroComponent, ChatComponent, MenuPrincipalComponent]
 })
 export class AppComponent {
   title = 'saladejuego';

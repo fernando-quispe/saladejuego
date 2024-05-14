@@ -14,6 +14,10 @@
             <button class="btn btn-primary" [class.btn-secondary]="juegoElegido !== 'Mayor o Menor'"
             [class.btn-warning]="juegoElegido == 'Mayor o Menor'" (click)="juegoElegido='Mayor o Menor';ConsultarPuntos('mayormenor');">Mayor o Menor</button>
         </div>
+        <div class="col-3">
+            <button class="btn btn-primary" [class.btn-secondary]="juegoElegido !== 'Simon Says'"
+            [class.btn-warning]="juegoElegido == 'Simon Says'" (click)="juegoElegido='Simon Says';ConsultarPuntos('simon-says');">Simon Says</button>
+        </div>
     </div>
 
     <div class="container ld ld-blur-in" >

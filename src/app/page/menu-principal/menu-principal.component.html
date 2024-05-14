@@ -1,0 +1,16 @@
+<nav class="site-header sticky-top py-1" >
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+      
+    @if(estado_activo){<a class="py-2 d-none d-md-inline-block" routerLink="/quien-soy" (click)='quienSoy()' routerActive="activebutton" >Quien Soy</a>}
+    @if(estado_activo){<a class="py-2 d-none d-md-inline-block" routerLink="/listados" routerActive="activebutton">Listados</a>}
+    @if(estado_activo){<a class="py-2 d-none d-md-inline-block" routerLink="/chat" (click)='chat()' routerActive="activebutton">Chat</a>}
+    @if(estado_activo){<a class="py-2 d-none d-md-inline-block" routerLink="/encuesta" (click)='encuesta()' routerActive="activebutton">Encuesta</a>}
+    @if(estado_activo && perfil=='admin'){<a class="py-2 d-none d-md-inline-block" routerLink="Resultados" routerActive="activebutton">Ver resultados</a>}
+    @if(estado_activo){<a class="py-2 d-none d-md-inline-block" routerLink="/home" (click)='home()' routerActive="activebutton">Juegos</a>}
+    @if(estado_activo){<a class="py-2 d-none d-md-inline-block" style="color: red;" routerActive="activebutton">{{mail_usuario}}</a>}
+    @if(estado_activo){<a class="py-2 d-none d-md-inline-block" (click)='cerrarSesion()' routerActive="activebutton">Cerrar Sesión</a>}
+    @if(!estado_activo || estado_activo==null){<a class="py-2 d-none d-md-inline-block" (click)='login()' routerLink="/login" routerActive="activebutton">Login</a>}
+    @if(!estado_activo || estado_activo==null){<a class="py-2 d-none d-md-inline-block" (click)='registro()' routerLink="/registro" routerActive="activebutton">Registro</a>}
+    
+  </div>
+</nav>

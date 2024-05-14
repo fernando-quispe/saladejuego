@@ -9,14 +9,16 @@ import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-quien-soy',
-  standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule],
+  //standalone: true,
+  //imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, RouterModule],
   templateUrl: './quien-soy.component.html',
   styleUrl: './quien-soy.component.css'
 })
 
 export class QuienSoyComponent implements OnInit {
-  loggedUser: any;
+  
+  constructor() { }
+  /*loggedUser: any;
   constructor(private router: Router) {
     const localUser = localStorage.getItem('loggedUser');
     if(localUser != null) {
@@ -27,7 +29,7 @@ export class QuienSoyComponent implements OnInit {
   onLogoff() {
     localStorage.removeItem('loggedUser');
       this.router.navigateByUrl('/login')
-  }
+  }*/
 
   ngOnInit(): void {
   }

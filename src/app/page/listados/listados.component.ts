@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../servicios/data.service';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-listados',
-  //standalone: true,
-  //imports: [],
+  standalone: true,
+  imports: [NgFor, NgIf],
   templateUrl: './listados.component.html',
   styleUrl: './listados.component.css'
 })

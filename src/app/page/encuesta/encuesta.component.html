@@ -1,0 +1,97 @@
+<section>
+<br><div class="jumbotron">
+    <form class="animate__animated animate__backInDown" novalidate (ngSubmit)="Enviar()" (click)="Enviar()" >
+    <!--<form [formGroup]="formulario" class="animate__animated animate__backInDown" novalidate (ngSubmit)="Enviar()">-->
+      <fieldset>
+        <div class="row row-form form-group">
+          <div class="col-6">
+            <label>Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" formControlName="nombre" [class]="isValid('nombre')"/>
+            <div class="invalid-feedback" style="font-family: sans-serif">
+              <span *ngIf="formulario.controls.nombre.errors?.required && formulario.controls.nombre.touched">Por favor ingrese su nombre</span>
+             <!-- @if(formulario.controls.nombre.errors?.required && formulario.controls.nombre.touched){<span>Por favor ingrese su nombre</span>}-->
+            </div>
+          </div>
+  
+          <div class="col-6">
+            <label>Apellido</label>
+            <input type="text" class="form-control" id="apellido" placeholder="Apellido" formControlName="apellido" [class]="isValid('apellido')"/>
+            <div class="invalid-feedback" style="font-family: sans-serif">
+              <span class="invalid" *ngIf="formulario.controls.apellido.errors?.required && formulario.controls.apellido.touched">Por favor ingrese su apellido</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row row-form form-group">
+          <div class="col-4">
+            <label>Edad</label>
+            <input type="number" class="form-control" id="edad" placeholder="Edad" formControlName="edad" [class]="isValid('edad')"/>
+            <div class="invalid-feedback" style="font-family: sans-serif">
+              <span *ngIf="formulario.get('edad').errors?.required">Por favor ingrese su edad</span>
+            </div>
+          </div>
+  
+          <div class="col-8">
+            <label>Telefono</label>
+            <input type="number" class="form-control" id="telefono" placeholder="Telefono" formControlName="telefono" [class]="isValid('telefono')"/>
+            <div class="invalid-feedback" style="font-family: sans-serif">
+              <span *ngIf="formulario.get('telefono').errors?.required">Por favor ingrese su Telefono</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row row-form form-group">
+          <div class="col-6">
+            <label>¿Como conocio esta sala de juegos?</label>
+            <input type="textarea" class="form-control" id="conocer" placeholder="Ingrese su respuesta aqui" formControlName="conocer" [class]="isValid('conocer')"/>
+            <div class="invalid-feedback" style="font-family: sans-serif">
+              <span *ngIf="formulario.get('conocer').errors?.required">Por favor ingrese una respuesta</span>
+            </div>
+          </div>
+  
+          <div class="col-6">
+            <label>¿Que juego le gusta?</label>
+            <select class="form-control" (change)="changeGame($event)" formControlName="game">
+              <option value="" disabled>Elija un juego</option>
+              <option value="Preguntados">Preguntados</option>              
+              <option value="Mayor o Menor">Mayor o menor</option>
+              <option value="Ahorcado">Ahorcado</option>
+              <option value="Simon says">Simon Says</option>
+            </select>
+            <div class="invalid-feedback" style="font-family: sans-serif">
+              <span *ngIf="formulario.get('telefono').errors?.required">Por favor ingrese su Telefono</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+            <label>-- Califique la sala de juegos</label>
+          <div class="col-12 radioGroupBelow">  
+            <label for="1">
+              <input type="radio" value="1" fromControlName="puntuacion" name="puntuacion" id="1" checked (change)="radioButtonSelect($event)"/>
+              <span>1</span>
+            </label>
+            <label for="2">
+              <input type="radio" value="2" fromControlName="puntuacion" name="puntuacion" id="2" (change)="radioButtonSelect($event)"/>
+              <span>2</span>
+            </label>
+            <label for="3">
+              <input type="radio" value="3" fromControlName="puntuacion" name="puntuacion" id="3" (change)="radioButtonSelect($event)"/>
+              <span>3</span>
+            </label>
+            <label for="4">
+              <input type="radio" value="4" fromControlName="puntuacion" name="puntuacion" id="4" (change)="radioButtonSelect($event)"/>
+              <span>4</span>
+            </label>
+            <label for="5">
+              <input type="radio" value="5" fromControlName="puntuacion" name="puntuacion" id="5" (change)="radioButtonSelect($event)"/>
+              <span>5</span>
+            </label>
+          </div>
+        </div>
+  
+        <button color="primary" type="submit" class="btn btn-primary" [disabled]="formulario.invalid">Enviar</button><br />
+      </fieldset>
+    </form>
+</div>
+</section>

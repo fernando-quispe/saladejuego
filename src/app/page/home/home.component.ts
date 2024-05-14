@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit} from '@angular/core';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { Component, OnInit, NgModule} from '@angular/core';
 import { EmailValidator, FormsModule } from '@angular/forms';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { BienvenidoComponent } from '../bienvenido/bienvenido.component';
@@ -9,15 +9,16 @@ import { JuegosComponent } from '../juegos/juegos.component';
 import AuthComponent from '../auth/auth.component';
 import { User } from '../login/user.model';
 import { signOut, Auth, signInWithEmailAndPassword } from 'firebase/auth';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../login/auth.service';
 import { ChatComponent } from '../chat/chat.component';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { SimonSaysComponent } from '../simon-says/simon-says.component';
 //import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-home',
-  //standalone: true,
-  //imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, ErrorComponent, RouterModule, HomeComponent, AuthComponent, ChatComponent],
+  standalone: true,
+  imports: [NgFor, NgIf, RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, RouterModule, HomeComponent, AuthComponent, ChatComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -26,7 +27,8 @@ export class HomeComponent implements OnInit {
   
   loggedUser: any;
   estaLogueado:boolean=false;
-/*
+
+  /*
   constructor(private router: Router) {
     const localUser = localStorage.getItem('loggedUser');
     if(localUser != null) {
@@ -41,9 +43,9 @@ export class HomeComponent implements OnInit {
 
       } else { console.log(' No hay usuario logueado ');}
     });
-   }
+  }
  
- onLogoff() {
+  onLogoff() {
     localStorage.removeItem('loggedUser');
     this.router.navigateByUrl('/login')
   }
@@ -58,19 +60,11 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/quien-soy')
   }
 
-/*
-  onLogoff(){
-    signOut(this.auth).then(() =>{
-      console.log(this.auth.currentUser?.email)
-    })
-    this.router.navigateByUrl('/login')
-  }*/
-
   ngOnInit(): void {
   }
   
   Juego(tipo: string) {
-    this.router.navigate(['/Juegos/'+tipo]);
+    this.router.navigate(['/juegos/'+tipo]);
   }
 
 }
