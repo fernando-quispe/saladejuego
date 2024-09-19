@@ -1,11 +1,16 @@
 <section>
 <div id="id01">
-    <form  class="form-signin modal-content" style="margin-top: 3rem;">       
+    <!--<form  class="form-signin modal-content" style="margin-top: 3rem;">-->
+        <form  class="form-signin modal-content" style="margin-top: 0rem;"> 
+
         <h1 class="h3 mb-3 font-weight-normal" style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 2rem;">Inicio de Sesión</h1>      
+
         <div style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 2rem;">
-        </div>          
+        </div>        
+          
         <div *ngIf="spiner"  style="position: absolute; justify-content: center; width:100%; z-index: 999;" class="row"><img src="../../../assets/imagenes/spinner.gif" alt="">
         </div>
+
         <div class="container"> 
             <label ><b>Email</b></label>
             <input  class="form-control" [ngClass]="emailClass"  id="email"   type="email" placeholder="Email"  [(ngModel)]="email"  name="uname" placeholder="nombre@gmail.com" required>
@@ -20,8 +25,9 @@
             <div class="divBoton"style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 1rem;">
             <button (click)="administradorLogin()" class="btn-warning btn-sm invitado"  onclick="this.blur();">Administrador</button>
             <button (click)="invitadoLogin()" class="btn-warning btn-sm invitado"  onclick="this.blur();">Invitado</button>
-            </div>
+            </div>            
         </div>
-    </form>
+    </form> 
+    <!--</form>-->
 </div>
 </section>

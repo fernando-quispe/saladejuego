@@ -9,7 +9,8 @@
 
 .parent{
     background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    /*background: linear-gradient(to right, #e2e2e2, #c9d6ff);*/
+    background: linear-gradient(to right, rgb(116, 214, 231), rgb(168, 200, 230));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,4 +217,9 @@
 
 .container.active .toggle-right{
     transform: translateX(200%);
+}
+
+section {
+    background-image: linear-gradient(to left,rgb(168, 200, 230),rgb(116, 214, 231));
+    height: 100vh;
 }

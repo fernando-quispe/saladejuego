@@ -22,6 +22,7 @@ export const authGuard: CanActivateFn = (route, state) => {
         }
         else
         {  
+          console.log("necesitas estar logueado");
           toast.error("Necesitás estar logueado para ingresar a esta ruta","Error");
           router.navigate(['/login']);
           return false;

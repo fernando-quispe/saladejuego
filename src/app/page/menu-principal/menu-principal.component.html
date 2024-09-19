@@ -2,7 +2,7 @@
   <div class="container d-flex flex-column flex-md-row justify-content-between">
       
     @if(estado_activo){<a class="py-2 d-none d-md-inline-block" routerLink="/quien-soy" (click)='quienSoy()' routerActive="activebutton" >Quien Soy</a>}
-    @if(estado_activo){<a class="py-2 d-none d-md-inline-block" routerLink="/listados" routerActive="activebutton">Listados</a>}
+    @if(estado_activo){<a class="py-2 d-none d-md-inline-block" routerLink="/listados" (click)='listados()' routerActive="activebutton">Listados</a>}
     @if(estado_activo){<a class="py-2 d-none d-md-inline-block" routerLink="/chat" (click)='chat()' routerActive="activebutton">Chat</a>}
     @if(estado_activo){<a class="py-2 d-none d-md-inline-block" routerLink="/encuesta" (click)='encuesta()' routerActive="activebutton">Encuesta</a>}
     @if(estado_activo && perfil=='admin'){<a class="py-2 d-none d-md-inline-block" routerLink="Resultados" routerActive="activebutton">Ver resultados</a>}

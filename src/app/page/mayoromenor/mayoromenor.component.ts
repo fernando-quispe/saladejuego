@@ -51,6 +51,7 @@ export class MayoromenorComponent implements OnInit{
      });
   }
 
+  //traigo las cartas
   ObtenerCarta() {
     this.cartas= new Array();
     this.http.get('https://deckofcardsapi.com/api/deck/new/draw/?count=52').subscribe((response) => {

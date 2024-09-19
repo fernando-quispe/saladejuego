@@ -18,6 +18,7 @@ export const routes: Routes = [
   { path:'login', component: LoginComponent },
   { path:'error', component: ErrorComponent },  
   { path:'quien-soy', component: QuienSoyComponent }, 
+  { path:'listados', component: ListadosComponent }, 
   { path:'home', component: HomeComponent }, 
   { path:'chat', component: ChatComponent },
   { path:'encuesta', component: EncuestaComponent},  

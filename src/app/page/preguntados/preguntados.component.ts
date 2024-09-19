@@ -33,6 +33,7 @@ export class PreguntadosComponent implements OnInit{
     private apiService: ApiService){      
   }
   
+  //traigo los paises desde servicios/api.service
   ngOnInit(): void {
     this.getCurrentUser();
     setTimeout(()=>{},100)

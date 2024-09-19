@@ -17,7 +17,7 @@ export class DataService {
   dbPuntosref:AngularFirestoreCollection<any>;
   itemCollecttion: AngularFirestoreCollection<Encuesta>;
 
-  constructor( public authSrv: AngularFireAuth,private db: AngularFirestore, private authService: AuthService) {
+  constructor( public authSrv: AngularFireAuth, private db: AngularFirestore, private authService: AuthService) {
     this.dbUsersRef = this.db.collection("usuarios");
     /*this.authSrv.authState.subscribe(user=>{
       if(user){
@@ -36,14 +36,14 @@ export class DataService {
     return this.dbUsersRef.doc(uid).valueChanges();
   }
 
-  updatePuntaje(userUid, puntos) {
+  updatePuntaje(userUid, puntos) { //VEO updatePuntaje(userUid, puntos) {
     console.info("puntajes updates", puntos); 
     return this.dbUsersRef.doc(userUid).update({
       puntajes: puntos
     })
   }
 
-  savePuntaje(juego,usuario,puntuacion){
+  savePuntaje(juego, usuario, puntuacion){ //VEO savePuntaje(juego,usuario,puntuacion){
     let fecha = new Date();
     this.dbUsersRef.doc(usuario.uid).update({
       puntajes: usuario.puntajes
@@ -55,7 +55,7 @@ export class DataService {
   }
 
   getPuntosByJuego(juego:string){
-    let puntos;
+    let puntos; //VEO let puntos;
     let turnosUfs =  this.db.collection(juego ,ref=>ref.orderBy('puntuacion','desc')).valueChanges();
     /* turnosUfs.docs.map(function(x){
     puntos.push(x.data());

@@ -24,8 +24,7 @@ export class MenuPrincipalComponent {
 
     this.authFire.authState.subscribe(res=>{
       if(res && res.uid){
-        this.mail_usuario = res.email;
-          
+        this.mail_usuario = res.email;          
         console.log(this.mail_usuario);
         this.auth.getUserByMail(this.mail_usuario).then(res =>{
           if(res.length > 0)
@@ -52,7 +51,6 @@ export class MenuPrincipalComponent {
         else{ this.estado_activo = false;
           //this.mail_usuario='';
         }
-
       },
       err => console.log(err)
     );
@@ -89,5 +87,9 @@ export class MenuPrincipalComponent {
 
   async chat(){        
     this.router.navigateByUrl('/chat');    
+  }
+
+  async listados(){        
+    this.router.navigateByUrl('/listados');    
   }
 }

@@ -13,12 +13,14 @@ import { AuthService } from '../login/auth.service';
 import { ChatComponent } from '../chat/chat.component';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { SimonSaysComponent } from '../simon-says/simon-says.component';
+import { ListadosComponent } from '../listados/listados.component';
 //import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor, NgIf, RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, LoginComponent, RouterModule, HomeComponent, AuthComponent, ChatComponent],
+  imports: [NgFor, NgIf, RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, ListadosComponent,
+            LoginComponent, RouterModule, HomeComponent, AuthComponent, ChatComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
