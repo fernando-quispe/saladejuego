@@ -1,6 +1,5 @@
 <section>
-<div id="id01">
-    <!--<form  class="form-signin modal-content" style="margin-top: 3rem;">-->
+<div id="id01">    
         <form  class="form-signin modal-content" style="margin-top: 0rem;"> 
 
         <h1 class="h3 mb-3 font-weight-normal" style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 2rem;">Inicio de Sesión</h1>      
@@ -12,22 +11,28 @@
         </div>
 
         <div class="container"> 
-            <label ><b>Email</b></label>
+            <label ><b>Correo electrónico</b></label>
             <input  class="form-control" [ngClass]="emailClass"  id="email"   type="email" placeholder="Email"  [(ngModel)]="email"  name="uname" placeholder="nombre@gmail.com" required>
             <label><b>Clave</b></label>
-            <input  class="form-control" [ngClass]="claveClass"   type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" placeholder="••••••••" required >
+            <input  class="form-control" [ngClass]="claveClass"   type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" placeholder="• • • • • •" required >
             
+            <br>
             <div class="divBoton"style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 2rem;">
             <button class="btn-success btn-sm button"  *ngIf="logeando" type="submit" onclick="this.blur();"  (click)="Entrar()" >Ingresar</button>
             </div>
-            
+
+            <style>
+                .btn-1{
+                    margin-right: 25px;
+                }
+            </style>
+
             <br>
             <div class="divBoton"style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 1rem;">
-            <button (click)="administradorLogin()" class="btn-warning btn-sm invitado"  onclick="this.blur();">Administrador</button>
+            <button (click)="administradorLogin()" class="btn-warning btn-sm invitado btn-1"  onclick="this.blur();">Administrador</button>
             <button (click)="invitadoLogin()" class="btn-warning btn-sm invitado"  onclick="this.blur();">Invitado</button>
             </div>            
         </div>
-    </form> 
-    <!--</form>-->
+    </form>     
 </div>
 </section>

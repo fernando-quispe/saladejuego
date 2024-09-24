@@ -30,7 +30,8 @@ export const routes: Routes = [
   { path:'bienvenido', component: BienvenidoComponent },   
   ]
   }, */
-  { path:'', redirectTo : 'login', pathMatch:'full' },
+  { path:'', redirectTo : 'home', pathMatch:'full' },
+  /*{ path:'', redirectTo : 'login', pathMatch:'full' },colocar si quiero que empiece en login y no en home*/
   { path: '**', component: ErrorComponent}     
 ];
   

@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   loggedUser: any;
   estaLogueado:boolean=false;
 
+  noEstaLogueado:boolean=false;
   /*
   constructor(private router: Router) {
     const localUser = localStorage.getItem('loggedUser');
@@ -43,7 +44,7 @@ export class HomeComponent implements OnInit {
       if(res && res.uid){
        this.estaLogueado=true;
 
-      } else { console.log(' No hay usuario logueado ');}
+      } else { this.noEstaLogueado=true; console.log(' No hay usuario logueado ');}
     });
   }
  

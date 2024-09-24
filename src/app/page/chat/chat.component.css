@@ -7,7 +7,16 @@ h1{
     border-radius: 1rem;
     font-size: 4rem;
     color:rgb(51, 151, 190);
+    text-align: center;
 }
+
+/*
+.jumbotron{
+    width: 400px;
+    margin: 13px 0 0 0;
+    position: relative;
+    margin-left: -8px;    
+}*/
 
 .div-boton-juego{
     display: flex;
@@ -81,7 +90,7 @@ h1{
     margin-top: 40px;
     margin-bottom: 150px;
 }
-  
+
 .puntero {
     cursor: pointer;
 }
@@ -111,8 +120,7 @@ h1{
     height: 336px;
     padding: 5px;
     background-image: url(/assets/imagenes/fondochat.jpg);
-}
-  
+}  
 
 .animated {
     -webkit-animation-duration: 1s;

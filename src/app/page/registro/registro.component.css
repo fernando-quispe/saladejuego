@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 *{
     margin: 0;
@@ -9,14 +9,14 @@
 
 .parent{
     background-color: #c9d6ff;
-    /*background: linear-gradient(to right, #e2e2e2, #c9d6ff);*/
-    background: linear-gradient(to right, rgb(116, 214, 231), rgb(168, 200, 230));
+    /*background: linear-gradient(to right, #e2e2e2, #c9d6ff);cambie*/
+    /*background: linear-gradient(to right, rgb(116, 214, 231), rgb(168, 200, 230));
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-}
+    flex-direction: column; 
+    height: 100vh;/*se modifica la altura del cuadro*/
+/*}
 
 .container{
     background-color: #fff;
@@ -222,4 +222,104 @@
 section {
     background-image: linear-gradient(to left,rgb(168, 200, 230),rgb(116, 214, 231));
     height: 100vh;
+    /*height: auto;*/
+/*}*/
+
+
+section {
+    background-image: linear-gradient(to left,rgb(168, 200, 230),rgb(116, 214, 231));
+    height: 94vh;
+    /*
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    background-color: green;   */
 }
+
+html,
+body {
+  height: 100%; 
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;  
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  background-color: #8bf3ea;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;  
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+/*
+/*
+.container {
+    padding: 16px;
+}
+input{
+  border-radius: 1rem;
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 3% auto 15% auto;
+    border: 1px solid #888;
+    border-radius: 2rem;
+    width: 50%; 
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.imgcontainer {
+    text-align: center;    
+    overflow:hidden;    
+}
+form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}*/

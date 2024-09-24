@@ -1,6 +1,6 @@
-<section>
+<!--<section>
 <div class="parent"> 
-    <div class="container" id="container">    
+     <div class="container" id="container">
         <div class="form-container sign-in">
             <form>               
                 <form  [formGroup]="form" (ngSubmit)="submit()">
@@ -25,6 +25,51 @@
             </div>
         </div>    
     </div>
+</div>
+</section>
+<router-outlet></router-outlet>-->
+
+<section>
+    <div id="id01">
+<form class="form-signin modal-content" style="margin-top: 0rem;" [formGroup] = "registroForm" (ngSubmit)="registro()">
+    <div  class="container">
+      <!--<h1 class="h3 mb-3 font-weight-normal">Registro de Usuario</h1>-->
+      <h1 class="h3 mb-3 font-weight-normal" style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 2rem;">Registro de Usuario</h1>  
+     <!-- <label><b>Usuario</b></label>
+      <input class="form-control" type="text" [(ngModel)]="user" [ngModelOptions]="{standalone: true }"  placeholder="Ingrese su nombre de usuario" name="user" required>
+      <label><b>Cuil</b></label>
+      <input class="form-control" type="number" [(ngModel)]="cuil" [ngModelOptions]="{standalone: true}" placeholder="Ingrese su Cuit/Cuil" name="email" required>
+      <label><b>Sexo</b></label>
+     
+      <select [(ngModel)]="sexo" [ngModelOptions]="{standalone: true}" class="browser-default custom-select">
+        <option selected value="Femenino">Femenino</option>
+        <option value="Masculino">Masculino</option>
+      </select>-->
+      <br>
+      <label><b>Correo electrónico</b></label>
+      <input class="form-control" type="email" formControlName="correo" placeholder="nombre@gmail.com" name="correo" [class.is-danger]="emailInvalido" [class.is-success]="emailValido" >
+      <div *ngIf="emailInvalido">        
+        <p class="help is-danger" *ngIf="email?.hasError('required')">Campo vacio</p>
+        <p class="help is-danger" *ngIf="email?.hasError('email')">Formato incorrecto</p>
+      </div>      
+
+      <label><b>Clave</b></label>
+      <input class="form-control" type="password" formControlName="clave" placeholder="• • • • • •" name="psw" [class.is-danger]="passwordInvalido" [class.is-success]="passwordValido">
+      <div *ngIf="passwordInvalido">        
+        <p class="help is-danger" *ngIf="password?.hasError('required')">Campo vacio</p>
+        <p class="help is-danger" *ngIf="password?.hasError('minLength')">Debe contener al menos 6 caracteres</p>
+      </div> 
+
+      <!--<div class="divBoton" style="margin-top: 10px;">
+        <button  type="submit" class="btn-success btn-sm boton " [disabled]="!registroForm.valid">Registrarme</button>
+      </div>-->
+      <br>
+        <div class="divBoton"style="justify-content: center; display:flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 2rem;">
+            <button class="btn-success btn-sm button"  type="submit" onclick="this.blur();"  [disabled]="!registroForm.valid" >Registrar</button>
+        </div>
+
+    </div>
+</form>
 </div>
 </section>
 <router-outlet></router-outlet>
