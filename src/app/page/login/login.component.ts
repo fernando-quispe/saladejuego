@@ -19,7 +19,8 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgFor, NgIf,FormsModule, RouterModule , RouterLinkActive, RouterOutlet,RouterLink, ReactiveFormsModule, RegistroComponent],
+  imports: [CommonModule, ReactiveFormsModule, NgFor, NgIf,FormsModule, RouterModule , 
+            RouterLinkActive, RouterOutlet,RouterLink, ReactiveFormsModule, RegistroComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -39,8 +40,7 @@ export class LoginComponent implements OnInit {
   emailClass = "form-control";
   claveClass = "form-control";
 
-  clase="progress-bar progress-bar-info progress-bar-striped ";//agregue 
- 
+  clase="progress-bar progress-bar-info progress-bar-striped ";//agregue  
 
   firebaseService = inject(AuthService);
   usuarios: any[];
@@ -142,18 +142,15 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/registro');    
   }
 
-  Entrar() {
-   
+  Entrar() {   
     this.spiner=true
     this.emailClass="form-control";
     this.claveClass="form-control";
 
-    if(this.email.length<4)
-    {
+    if(this.email.length<4)    {
       this.emailClass="form-control error";
     }
-    if(this.clave.length<4)
-    {
+    if(this.clave.length<4)    {
       this.claveClass="form-control error";
     }
   

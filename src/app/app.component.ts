@@ -14,6 +14,7 @@ import { ChatComponent } from './page/chat/chat.component';
 import { MenuPrincipalComponent } from "./page/menu-principal/menu-principal.component";
 import { SimonSaysComponent } from './page/simon-says/simon-says.component';
 import { ListadosComponent } from './page/listados/listados.component';
+import { ResultadosEncuestasComponent } from './page/resultados-encuestas/resultados-encuestas.component';
 
 @Component({
     selector: 'app-root',    
@@ -21,7 +22,7 @@ import { ListadosComponent } from './page/listados/listados.component';
     styleUrl: './app.component.css',
     standalone: true,
     imports: [RouterOutlet, FormsModule, CommonModule, BienvenidoComponent, ErrorComponent, ListadosComponent,
-              RouterModule, AuthComponent, RegistroComponent, ChatComponent, MenuPrincipalComponent]
+              RouterModule, AuthComponent, RegistroComponent, ChatComponent, MenuPrincipalComponent, ResultadosEncuestasComponent]
 })
 export class AppComponent {
   title = 'saladejuego';

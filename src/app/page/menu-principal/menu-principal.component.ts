@@ -92,4 +92,8 @@ export class MenuPrincipalComponent {
   async listados(){        
     this.router.navigateByUrl('/listados');    
   }
+
+  async resultados(){        
+    this.router.navigateByUrl('/resultados');    
+  }
 }

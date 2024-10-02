@@ -16,6 +16,7 @@ export class DataService {
   dbUsersRef: AngularFirestoreCollection<any>;
   dbPuntosref:AngularFirestoreCollection<any>;
   itemCollecttion: AngularFirestoreCollection<Encuesta>;
+  user: any;
 
   constructor( public authSrv: AngularFireAuth, private db: AngularFirestore, private authService: AuthService) {
     this.dbUsersRef = this.db.collection("usuarios");

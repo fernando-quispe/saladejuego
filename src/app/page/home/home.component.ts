@@ -44,13 +44,16 @@ export class HomeComponent implements OnInit {
       if(res && res.uid){
        this.estaLogueado=true;
 
-      } else { this.noEstaLogueado=true; console.log(' No hay usuario logueado ');}
+      } else { 
+        this.noEstaLogueado=true; 
+        console.log(' No hay usuario logueado ');
+      }
     });
   }
  
   onLogoff() {
     localStorage.removeItem('loggedUser');
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/home') //antes login
   }
 
   chat() {

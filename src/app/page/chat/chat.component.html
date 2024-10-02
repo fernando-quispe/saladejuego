@@ -7,11 +7,11 @@
         <div class="mensajes" id="mensajes">
             <div class="h5" *ngFor="let chat of chatServ.chats ">
 
-                <div *ngIf="chatServ.usuario.id==chat.id; else notUser">
+                <div *ngIf="chatServ.usuario.id==chat.id; else notUser">                    
                     <div style="text-align: right;">
                         <span style="font-size: 1rem;" >{{chat.time}}</span>
                             <span class="badge badge-primary text-wrap">
-                            <span *ngIf="chat.nombre; else notName">{{ chat.nombre}} :</span>
+                            <!--<span *ngIf="chat.nombre; else notName">{{ chat.nombre}} :</span> CON ESTO NO APARECE EL NOMBRE DEL LADO DERECHO-->
                             <ng-template #notName>{{chat.email}} : </ng-template>
                         </span>
                         <p> {{chat.mensaje}} </p>

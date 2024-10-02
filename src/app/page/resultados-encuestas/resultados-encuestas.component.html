@@ -1,0 +1,38 @@
+<section>
+<div class="jumbotron"  style="margin-top: 5px;">
+    <h1 class="display-4">Resultados de encuestas</h1>
+
+    <div class="container ld ld-blur-in" >
+        <table class="table table-hover table-bordered animated fadeIn faster ld ld-slide-ttb-in" style="background-color: rgb(236, 236, 233);">
+            <thead>
+                <tr class="bg-primary" style="color: white;text-align: center;">
+                    <th colspan="4">Datos del usuario</th>
+                    <th colspan="4">Datos de la encuesta</th>
+                </tr>
+                <tr class="bg-primary" style="color: white;">
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Nombre y Apellido</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">¿Cómo nos conociste?</th>
+                    <th scope="col">¿Tu juego preferido?</th>
+                    <th scope="col">Calificación</th>
+                    <th scope="col">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr appPasarCursor *ngFor="let elemento of listado">
+                    <td>{{elemento.email}}</td>
+                    <td>{{elemento.nombre}} {{elemento.apellido}}</td>
+                    <td>{{elemento.edad}}</td>
+                    <td>{{elemento.telefono}}</td>
+                    <td>{{elemento.comoNosConociste}}</td>
+                    <td>{{elemento.juegoPreferido}}</td>
+                    <td>{{elemento.puntuacion}}/5</td>
+                    <td>{{elemento.fecha}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</section>

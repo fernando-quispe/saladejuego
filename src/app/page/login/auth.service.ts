@@ -62,7 +62,7 @@ export class AuthService {
   signOut() {
     getAuth().signOut();
     localStorage.removeItem('user');
-    this.routerlink('/login');
+    this.routerlink('/login'); //lo habia cambiado
   }
 
   routerlink(url: any) {
@@ -211,7 +211,7 @@ export class AuthService {
 
   logout() {
     this.auth.signOut().then(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login']); //era login, esta bien poner home
     })
   }
 

@@ -6,7 +6,7 @@
 h1{
     border-radius: 1rem;
     font-size: 4rem;
-    color:rgb(51, 151, 190);
+    color:white;
 }
 
 .div-boton-juego{
@@ -19,26 +19,25 @@ h1{
     width: auto;
     height: auto;
 }
+
 .jumbotron{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background: rgb(113, 230, 224);
+    background: black;
     color: blanchedalmond;
     border-radius: 13px 11px 9px 9px;
     -moz-border-radius: 13px 11px 9px 9px;
     -webkit-border-radius: 13px 11px 9px 9px;
     border: 1px solid #000000;
-
+    width: 50%;
+    margin-left: auto;
     -webkit-box-shadow: 6px 10px 18px -5px rgba(0,0,0,0.75);
-     -moz-box-shadow: 6px 10px 18px -5px rgba(0,0,0,0.75);
-     box-shadow: 6px 10px 18px -5px rgba(0,0,0,0.75);
-     padding: 0px;
-
+    -moz-box-shadow: 6px 10px 18px -5px rgba(0,0,0,0.75);
+    margin-right: auto;
+    box-shadow: 6px 10px 18px -5px rgba(0,0,0,0.75);
+    padding: 0px;
 }
+
 .tablero{
     display: flex;
     flex-direction: column;
@@ -50,8 +49,35 @@ h1{
     width: auto;
 }
 
-.botones{
-    border-radius: 10px;
+.padre{
+    border: 1px;
+    display: inline-block;
+    width: 28px;
+    margin: 3px;
+    text-align: left;
+}
+
+.letras{
+    padding: 0.1em 0.6em;
+    /*border: 1px solid #CCC;
+    font-family: Arial,Helvetica,sans-serif;
+    color: #333;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 2px #FFF inset;
+    text-shadow: 0px 1px 0px #FFF;
+
+    */
+    background-color: #F7F7F7;   
+    border-radius: 3px;
+    display: inline-block;
+    margin: 0px 0.1em;    
+    line-height: 1.4;
+    white-space: nowrap;
+    font-size: 12px;
+    cursor: pointer;
+} 
+
+.letras:hover{
+    background-color: coral;
 }
 
 section {

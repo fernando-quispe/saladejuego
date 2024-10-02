@@ -229,7 +229,7 @@ body {
   -ms-flex-align: center;
   align-items: center;
   padding-top: 40px;
-  padding-bottom: 40px;  
+  padding-bottom: 40px;    
 }
 
 .form-signin {
@@ -237,7 +237,7 @@ body {
   max-width: 330px;
   padding: 15px;
   margin: auto;
-  background-color: #8bf3ea;
+  background-color: #8bf3ea; 
 }
 
 .form-signin .checkbox {
@@ -270,6 +270,28 @@ body {
 
 btn-1 {
 margin-right:35px;
+}
+
+.colores{
+    background-color: aquamarine;
+}
+
+.divi {
+    width: 250px;
+    margin: auto;
+}
+
+.modal-content {
+    background-color: aquamarine;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    border-radius: 2rem;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+  
+input{
+    border-radius: 1rem;
+    margin-bottom: 2rem;
 }
 
 /*

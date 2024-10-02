@@ -1,16 +1,16 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FormBuilder, FormGroup, Validators, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../../servicios/data.service';
 import { Encuesta } from '../../clases/encuesta';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-encuesta',
-  //standalone: true,
-  //imports: [ReactiveFormsModule, CommonModule, RouterOutlet],
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule, RouterOutlet, FormsModule, NgIf],
   templateUrl: './encuesta.component.html',
   styleUrl: './encuesta.component.css'
 })

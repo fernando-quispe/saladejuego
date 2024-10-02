@@ -12,7 +12,8 @@ import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgFor,FormsModule, RouterModule , RouterLinkActive, RouterOutlet,RouterLink, CommonModule, BienvenidoComponent, ReactiveFormsModule, RegistroComponent],
+  imports: [CommonModule, ReactiveFormsModule, NgFor,FormsModule, RouterModule , RouterLinkActive, RouterOutlet,RouterLink, CommonModule, 
+            BienvenidoComponent, ReactiveFormsModule, RegistroComponent],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
@@ -86,7 +87,7 @@ export class RegistroComponent implements OnInit {
         .then(auth => {
           this.authService.login(correo, clave)
           .then(res => {
-           this.router.navigate(['/Home']);
+           this.router.navigate(['/home']);
          })
         })
         .catch(err => {

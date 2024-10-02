@@ -12,6 +12,8 @@ import { ListadosComponent } from './page/listados/listados.component'
 import { authGuard } from './guards/auth.guard';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EncuestaComponent } from './page/encuesta/encuesta.component';
+import { ResultadosEncuestasComponent } from './page/resultados-encuestas/resultados-encuestas.component';
+import { AdminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
     
@@ -21,7 +23,8 @@ export const routes: Routes = [
   { path:'listados', component: ListadosComponent }, 
   { path:'home', component: HomeComponent }, 
   { path:'chat', component: ChatComponent },
-  { path:'encuesta', component: EncuestaComponent},  
+  { path:'encuesta', component: EncuestaComponent},
+  { path: 'resultados', component: ResultadosEncuestasComponent, canActivate: [AdminGuard]},  
   { path:'registro', component: RegistroComponent },
   /*{ path:'juegos', component: JuegosComponent },*/ 
   /*{ path:'Juegos',loadChildren: ()=>(import('./modules/juegos/juegos-routing.module').then(m => m.JuegosRoutingModule))},*/

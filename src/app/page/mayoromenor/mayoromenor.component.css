@@ -65,3 +65,14 @@ h1{
     width: 100px;
     height: 100px;
 }
+
+section {
+    background-image: linear-gradient(to left,rgb(168, 200, 230),rgb(116, 214, 231));
+    height: 94vh;
+    /*
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    background-color: green;   */
+}

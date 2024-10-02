@@ -22,7 +22,7 @@ export class JuegosComponent implements OnInit {
 
   onLogoff() {
     localStorage.removeItem('loggedUser');
-      this.router.navigateByUrl('/login')
+      this.router.navigateByUrl('/login') //lo cambie, era login
   }
 
   ngOnInit() {
