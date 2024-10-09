@@ -7,11 +7,13 @@
             <div class="container tablero">
                 @if(enJuego){<div class="row ld ld-vortex-alt-in" style="display: flex; flex-direction: row; justify-content: center;">
                     @if(this.paisActual){<div>
+
                         <div class="text-center">
                             <h3>La bandera de qué país es???</h3>
                             <h5>Puntuacion: {{contadorPuntos}}</h5>
                             <img [src]="paisActual.flags.png">
                         </div>
+
                         <div class="row text-center" style="margin-top: 20px;">
                             <div class="col-3">
                                 <button class="btn btn-primary" (click)="elegir(0)">{{paises[0].translations.spa.official}}</button>
@@ -26,6 +28,7 @@
                                 <button class="btn btn-danger" (click)="elegir(3)">{{paises[3].translations.spa.official}}</button>
                             </div>
                         </div>
+
                     </div>}
                 </div>}
             </div>
@@ -34,12 +37,15 @@
         @if(!enJuego){<div style="justify-content: center; margin-top: 2rem;" class="row">
             <p><button (click)="nuevo()" class="btn btn-primary btn-lg" type="button" id="button-nuevo">Nuevo juego</button></p>
         </div>}
+
         @if(save){<div>
             <button class="btn btn-success" onclick="this.blur();" type="button" id="button-verificar" (click)="guardar()">Guardar partida</button>
         </div>}
+
         @if(enJuego){<div style="justify-content: center; margin-top: 2rem;" onclick="this.blur();" class="row">
             <p><button  (click)="finalizar()" class="btn btn-danger btn-lg" type="button" id="button-fin">Finalizar</button></p>
         </div>}
+
     </div>
 </div>
 </section>

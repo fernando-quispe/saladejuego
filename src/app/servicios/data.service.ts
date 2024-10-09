@@ -20,13 +20,13 @@ export class DataService {
 
   constructor( public authSrv: AngularFireAuth, private db: AngularFirestore, private authService: AuthService) {
     this.dbUsersRef = this.db.collection("usuarios");
-    /*this.authSrv.authState.subscribe(user=>{
+    this.authSrv.authState.subscribe(user=>{
       if(user){
         this.user.name=user.displayName;
         this.user.email=user.email;
         this.user.id=user.uid;
       }
-    });*/
+    });
   }
 
   getUsers() {

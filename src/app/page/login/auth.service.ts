@@ -131,8 +131,7 @@ export class AuthService {
     })
   }
 
-  getUserEmail()
-  {  
+  getUserEmail()  {  
       return new Promise((resolve, reject) => {
         this.auth.onAuthStateChanged(function(user){
             if(user)
@@ -150,7 +149,6 @@ export class AuthService {
   }
     
   getLogueado (){
-
     let user = this.auth.currentUser;
     console.log(user);
     if(user != undefined && user!= null)
@@ -167,7 +165,6 @@ export class AuthService {
   }
 
   async getUserByMail(email: string) {
-
     console.log("buscando usuario por mail");
     let usrsRef = await this.dbUsersRef.ref.where("email", "==", email).get();
     let listado:Array<any> = new Array<any>();
@@ -191,7 +188,6 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-
     return new Promise((resolve, reject) => {
       this.auth.signInWithEmailAndPassword(email, password)
         .then(user => {

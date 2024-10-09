@@ -1,6 +1,6 @@
 <section>
 <div class="jumbotron"  style="margin-top: 5px;">
-    <h1 class="display-4">Listado de puntuaciones</h1>
+    <h1 class="display-4">Listado de Resultados</h1>
     <div class="row mt-4 mb-4">
         <div class="col-3">
             <button class="btn btn-primary" [class.btn-secondary]="juegoElegido !== 'Ahorcado'"
@@ -17,7 +17,7 @@
         </div>
         <div class="col-3">
             <button class="btn btn-primary" [class.btn-secondary]="juegoElegido !== 'Simon Says'"
-            [class.btn-warning]="juegoElegido == 'Simon Says'" (click)="juegoElegido='Simon Says';ConsultarPuntos('simon-says');">Simon Says</button>
+            [class.btn-warning]="juegoElegido == 'Simon Says'" (click)="juegoElegido='Simon Says';ConsultarPuntos('simonsays');">Simon Says</button>
         </div>
     </div>
 
