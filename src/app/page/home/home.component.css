@@ -107,8 +107,23 @@ footer .redes_sociales .linkedin:hover{background: #0077b5;}
 
 section {
     background-image: linear-gradient(to left,rgb(168, 200, 230),rgb(116, 214, 231));
-    height: 100vh;
+    height: 93vh;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    text-align: center; /* Centra el texto */
+    padding: 0px; /* Espaciado interno */
+    background-color: #fcfcfc; /* Color de fondo */
+    position: relative; /* Opcional, pero útil si necesitas un posicionamiento específico */
+    bottom: 0; /* Coloca el footer al fondo */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+}
+
 
 .btnleft {
     /*border: 1px solid #FAFAFA;*/

@@ -188,7 +188,7 @@
  
   footer .redes_sociales{
     background: #1e2b28;
-    padding: 60px 0;
+    padding: 59.5px 0;
   }
 
   footer .redes_sociales .contenedor{
@@ -247,6 +247,16 @@
     background-color: #f5f5f5;
   }  
 
+
+
+footerold {
+    text-align: center; /* Centra el texto */
+    padding: 30px; /* Espaciado interno */
+    background-color: #dbd3d3; /* Color de fondo */
+    position: relative; /* Opcional, pero útil si necesitas un posicionamiento específico */
+    bottom: 0; /* Coloca el footer al fondo */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+}
   /*
   .main  {
     background-image: linear-gradient(to left,rgb(168, 200, 230),rgb(116, 214, 231));
